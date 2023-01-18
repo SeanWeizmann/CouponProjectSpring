@@ -88,7 +88,7 @@ public class AdminController {
             throw new InvalidException("Wrong client type");
         }
 //        adminService.getOneCompany(id);
-        return new ResponseEntity<>(adminService.getOneCompany(id), HttpStatus.OK);
+        return new ResponseEntity<>(adminService.getOneCompany(id), HttpStatus.ACCEPTED);
     }
 
     @PostMapping("/add_customer")
@@ -135,7 +135,7 @@ public class AdminController {
         if (!jwtUtil.checkClientType(ClientType.ADMINISTRATOR, token)){
             throw new InvalidException("Wrong client type");
         }
-        return new ResponseEntity<>(adminService.getAllCustomers(), HttpStatus.OK);
+        return new ResponseEntity<>(adminService.getAllCustomers(), HttpStatus.ACCEPTED);
     }
 
     @GetMapping("/get_customer_by_id/{id}")
@@ -146,7 +146,7 @@ public class AdminController {
         if (!jwtUtil.checkClientType(ClientType.ADMINISTRATOR, token)){
             throw new InvalidException("Wrong client type");
         }
-        return new ResponseEntity<>(adminService.getOneCustomer(id), HttpStatus.OK);
+        return new ResponseEntity<>(adminService.getOneCustomer(id), HttpStatus.ACCEPTED);
     }
 
 
